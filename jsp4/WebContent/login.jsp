@@ -28,11 +28,23 @@
 		}
 		return true;
 		}
+		function formSubmit(){
+			var param = {};
+			param["id"] = document.getElementById("id").value;
+			param["pwd"] = document.getElementById("pwd").value;
+
+			//alert(JSON.stringify(param));
+			
+			param = [{"id" : "test", "pwd":"password"},
+				{"id" : "test2", "pwd" : "password2"}];// id,pwd인 key는 동일해야함. 벨류값은 달라도됨. 이 구조 자체가 위의 JSON
+			alert(param[1].id);
+			alert(param[1].pwd);
+		}
 	</script>
 	<form method="post" action="/test.login" onsubmit="return checkValue()">
 		아이디 : <input type="text" name="id" id="id"><br>
 		비밀번호 : <input type="password" name="pwd" id="pwd"><br>
-		<input type="submit" value="login">
+		<input type="button" value="login" onclick="formSubmit()">
 	</form>
 </body>
 </html>
